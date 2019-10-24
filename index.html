@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+		@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Galactic Travel Planner </title>
+	<link rel="icon" href="Pictures/Planet1.png">
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="showSlides(0)">
+
+	<div class="navbar">
+		<ul>
+			<li><a class="active" href="index.html">Home</a></li>
+			<li><a href='trip.html'>Trip Selection</a></li>
+			<li><a href='dash.html'>Dashboard</a></li>
+			<li style="float:right" style="float:top">
+				<button1 onclick="tologin()" id="myBtn" class="loginbtn">Log In / Register </button1>
+			</li>
+			<li style="float:right" style="float:top">
+				<button1 onclick="logout()" id="logout" class='loginbtn'>Logout</button>
+			</li>
+			<!--       <li style="float:right" style = 'float:top'><button1 id="myBtn" class="loginbtn">Log In / Register  </button1></li> -->
+		</ul>
+
+		<div class='header'>
+			<div class='headpara'>
+
+				<head> GALACTIC TRAVEL PLANNER </head>
+			</div>
+		</div>
+		<br>
+  <!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 5</div>
+    <img src="Pictures/img1.jpg" style="width:100%">
+    <div class="text">Pluto</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 5</div>
+    <img src="Pictures/haumea.jpg" style="width:100%; height:100%;">
+    <div class="text">Haumea</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 5</div>
+    <img src="Pictures/img3.jpg" style="width:100%">
+    <div class="text">Eris</div>
+  </div>
+  
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 5</div>
+    <img src="Pictures/img4.jpg" style="width:100%">
+    <div class="text">Makemake</div>
+  </div>
+
+
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 5</div>
+    <img src="Pictures/img5.jpg" style="width:100%">
+    <div class="text">OR10</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<div class = 'head'>
+
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+</div>
+
+
+
+  <h1> Welcome to your Galactic Travel Planner </h1>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">      
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  
+    <script>
+          // Initialize Firebase
+          var config = {
+              apiKey: "AIzaSyCpg42fuToG0CR_G-RRSTvgTFCpgweMgHI",
+              authDomain: "space-apps-c1404.firebaseapp.com",
+              databaseURL: "https://space-apps-c1404.firebaseio.com",
+              projectId: "space-apps-c1404",
+              storageBucket: "space-apps-c1404.appspot.com",
+              messagingSenderId: "551910240362",
+              appId: "1:551910240362:web:9daa935c503101a8bcda13",
+              measurementId: "G-B7NSM2FDRC"
+          };
+          firebase.initializeApp(config);
+          //var rootRef = firebase.database().ref();
+          //console.log(rootRef);
+          
+  </script>
+  </head>
+  
+  
+  <body>
+    <center>
+      <div id = "login-register">
+          <div id = "login">
+            <span onclick = 'exit()' class = "userClose">&times</span>
+              <labellog> Email </labellog>
+              <br>
+              <p></p>
+              <br>
+              <input class = 'roform' type="email" placeholder="Email..." id="email_field" />
+              <br>
+              <p></p>
+              <br>
+              <labellog> Password </labellog>
+              <br>
+              <p></p>
+              <br>
+              <input  class = 'roform' type="password" placeholder="Password..." id="password_field" />
+              <br>
+              <p></p>
+              <br>
+              <button class = 'stylebtn' onclick="login()" id = "login_button">Login</button>
+              <p></p>
+              <br>
+              <button class = 'stylebtn' onclick="toregister()" id = "fakeregisterbutton">Register</button>
+              <br>
+          </div>
+  
+          <div id = "register">
+            <span onclick = 'exit()' class = "userClose">&times</span>
+              <labellog> Email </labellog>
+              <br>
+              <p></p>
+              <br>
+              <input class = 'roform' type="email" placeholder="Email..." id="register_email_field" />
+              <br>
+              <p></p>
+              <br>
+              <labellog> Password </labellog>
+              <br>
+              <p></p>
+              <br>
+              <input class = 'roform' type="password" placeholder="Password..." id="register_password_field" />
+              <br>
+              <p></p>
+              <br>
+              <labellog> Confirm Your Password </labellog>
+              <br>
+              <p></p>
+              <br>
+              <input  class = 'roform' type="password" placeholder="Confirm Your Password" id="register_confirm_field"/>
+              <br>
+              <p></p>
+              <br>
+              <button class = 'stylebtn'onclick="register()" id = "real_register_button">Register</button>
+              <br>
+              <p></p>
+              <br>
+              <button class = 'stylebtn' onclick="tologin()" id = "backtologinbutton" >Back To Login</button>
+              <br>
+              <p></p>
+              <br>
+          </div>
+          </div>
+          </center>
+    <script src = "main.js"></script>
+
+
+  </div>
+
+</div>
+
+  <br>
+
+  <h1> Our highlighted destinations of 2050! </h1>
+
+  <center>
+<!-- Modal 1 -->
+  <!--<button id = "planetModalButton1">Open Modal</button>-->
+  <img src = "Pictures/Planet1.png" id = "planetModalButton1" class = "planetModalButton">
+<div id="planetModal1" class="planetModal">
+  <!-- Modal content -->
+  <div class="planetModalContent">
+    <div class="planetModalHeader">
+      <span id="planetClose1" class = "planetClose">&times;</span>
+      <h2>Pluto</h2>
+    </div>
+    <div class="planetModalBody">
+      <div class="row">
+        <div class="column">
+          <center>
+            <img src = 'Pictures/Planet1.png' width = 400 height = 400>
+          </center>
+        </div>
+        <div class="column">
+          <p>- 40 astronomical units away from Earth (5983914828 km</p>
+          <p>- Discovered in 1930</p>
+          <p>- Diameter of 2376.6 km</p>
+          <h4>Fun Facts</h4>
+          <p>1. Pluto is about 1,400 miles (2,380 km) wide. That's about half the width of the United States</p>
+          <p>2. Pluto orbits the Sun about 5.8 billion km away on average, about 40 times as far as Earth</p>
+          <p>3. A year on Pluto is 248 Earth years. A day on Pluto lasts 153 hours, or about 6 Earth days</p>
+          <p>Data provided by NASA</p>
+        </div>
+      </div>
+    </div>
+    <div class="planetModalFooter">
+      <h3>$254 296</h3>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+  <!--<button id = "planetModalButton2">Open Modal</button>-->
+  <img src = "Pictures/Planet2.png" id = "planetModalButton2" class = "planetModalButton">
+<div id="planetModal2" class="planetModal">
+  <!-- Modal content -->
+  <div class="planetModalContent">
+    <div class="planetModalHeader">
+      <span id="planetClose2" class = "planetClose">&times;</span>
+      <h2>Haumea</h2>
+    </div>
+    <div class="planetModalBody">
+      <div class="row">
+        <div class="column">
+          <center>
+            <img src = 'Pictures/Planet2.png' width = 400 height = 400>
+          </center>
+        </div>
+        <div class="column">
+          <p>- 43 astronomical units away from Earth</p>
+          <p>- Discovered in 2004</p>
+          <p>- Average diameter of 100 km</p>
+          <h4>Fun facts</h4>
+          <p>1. Haumea takes 285 Earth years to make one trip around the Sun. As Haumea orbits the Sun, it completes one rotation every 4 hours, making it one of the fastest rotating large objects in our solar system.</p>
+          <p>2. Haumea has two known moons: Namaka is the inner moon, and Hi'iaka is the outer moon.</p>
+          <p>Data provided by NASA</p>
+          </div>
+      </div>
+    </div>
+    <div class="planetModalFooter">
+      <h3>$10 000</h3>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+  <!--<button id = "planetModalButton3">Open Modal</button>-->
+  <img src = 'Pictures/Planet3.png' id = 'planetModalButton3' class = 'planetModalButton'>
+<div id="planetModal3" class="planetModal">
+  <!-- Modal content -->
+  <div class="planetModalContent">
+    <div class="planetModalHeader">
+      <span id="planetClose3" class = "planetClose">&times;</span>
+      <h2>Eris</h2>
+    </div>
+          <div class="planetModalBody">
+              <div class="row">
+                  <div class="column">
+                    <center>
+                      <img src = 'Pictures/Planet3.png' width = 400 height = 400>
+                    </center>
+                  </div>
+                  <div class="column">
+                    <p>- 68 Astronomical units away from Earth</p>
+                    <p>- Discovered in 2003</p>
+                    <p>- Diameter of 2326 km</p>
+                    <h4>Fun facts</h4>
+                    <p>1. It's smaller than out moom</p>
+                    <p>2. Eris takes 557 Earth years to make one trip around the Sun</p>
+                    <p>Data provided by NASA</p>
+                    </div>
+                </div>
+    <div class="planetModalFooter">
+      <h3>$247 065</h3>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal 4 -->
+  <!--<button id = "planetModalButton4">Open Modal</button>-->
+  <img src = 'Pictures/Planet4.png' id = 'planetModalButton4' class = 'planetModalButton'>
+<div id="planetModal4" class="planetModal">
+  <!-- Modal content -->
+  <div class="planetModalContent">
+    <div class="planetModalHeader">
+      <span id="planetClose4" class = "planetClose">&times;</span>
+      <h2>Makemake</h2>
+    </div>
+          <div class="planetModalBody">
+              <div class="row">
+                  <div class="column">
+                    <center>
+                      <img src = 'Pictures/Planet4.png' width = 400 height = 400>
+                    </center>
+                  </div>
+                  <div class="column">
+                    <p>- 45.8 astronomical units away from earth</p>
+                    <p>- Discovered in 2005</p>
+                    <p>- Diameter of 1430 km</p>
+                    <h4>Fun Facrs</h4>
+                    <p>1. If Earth were the size of a nickel, Makemake would be about as big as a mustard seed</p>
+                    <p>2. Makemake takes 305 Earth years to make one trip around the sun</p>
+                    <p>3. It completes one rotation every 22 and a half hours, making its day length similar to Earth</p>
+                    <p>Data provided by NASA</p>
+                    </div>
+                </div>
+    <div class="planetModalFooter">
+      <h3>$252 283</h3>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Modal 5 -->
+  <!--<button id = "planetModalButton5">Open Modal</button>-->
+  <img src = 'Pictures/Planet5.png' id = 'planetModalButton5' class = 'planetModalButton'>
+<div id="planetModal5" class="planetModal">
+  <!-- Modal content -->
+  <div class="planetModalContent">
+    <div class="planetModalHeader">
+      <span id="planetClose5" class = "planetClose">&times;</span>
+      <h2>OR10</h2>
+    </div>
+          <div class="planetModalBody">
+              <div class="row">
+                  <div class="column">
+                    <center>
+                      <img src = 'Pictures/Planet5.png' width = 400 height = 400>
+                    </center>
+                  </div>
+                  <div class="column">
+                    <p>- 88 astronomical units away from earth</p>
+                    <p>- Discovered in 2007</p>
+                    <p>- Diameter of 1752 km</p>
+                  </div>
+                </div>
+    <div class="planetModalFooter">
+      <h3>$390 731</h3>
+    </div>
+  </div>
+</div>
+</div>
+</center>
+
+  <script src="script.js">
+    </script>
+
+  
+
+</div>
+
+
+</body>
+
+
+</html>

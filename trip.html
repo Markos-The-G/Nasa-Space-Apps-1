@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+	</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>GTP: Trip Selection </title>
+	<link rel="icon" href="Pictures/Planet1.png">
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js">
+
+	</script>
+	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js">
+
+	</script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyCpg42fuToG0CR_G-RRSTvgTFCpgweMgHI",
+			authDomain: "space-apps-c1404.firebaseapp.com",
+			databaseURL: "https://space-apps-c1404.firebaseio.com",
+			projectId: "space-apps-c1404",
+			storageBucket: "space-apps-c1404.appspot.com",
+			messagingSenderId: "551910240362",
+			appId: "1:551910240362:web:9daa935c503101a8bcda13",
+			measurementId: "G-B7NSM2FDRC"
+		};
+		firebase.initializeApp(config);
+		//var rootRef = firebase.database().ref();
+		//console.log(rootRef);
+	</script>
+
+</head>
+
+<body class = 'body1'>
+
+	<div class="navbar">
+		<ul class="navbar-ul">
+			<li><a href="index.html">Home</a></li>
+			<li><a class="active" href='trip.html'>Trip Selection</a></li>
+			<li><a href='dash.html'>Dashboard</a></li>
+			<li style="float:right" style="float:top">
+				<button1 onclick="tologin()" id="myBtn" class="loginbtn">Log In / Register </button1>
+			</li>
+			<li style="float:right" style="float:top">
+				<button1 onclick="logout()" id="logout" class='loginbtn'>Logout</button>
+			</li>
+		</ul>
+	</div>
+	<div id="classtags">
+		<ul id="classtagsul">
+		</ul>
+		<form id="sortingid">
+			<select name="sortingOption" id = "sorting">
+				<option value="Date">Date of Discovery (Low to High)</option>
+				<option value="Size">Size (Low to High)</option>
+				<option value="Distance">Distance (Low to High)</option>
+				<option value="Date">Date of Discovery (High to Low)</option>
+				<option value="Size">Size (High to Low)</option>
+				<option value="Distance">Distance (High to Low)</option>
+			</select>
+		</form>
+		<button class = "searchbutton" onclick = "search()">Search</button>
+	</div>
+
+
+	<div id = "objecttags">
+		<ul id = "objecttagsul">
+		</ul>
+	</div>
+
+  <div>Purchases: </div>
+
+	<script src = "planner.js"></script>
+</body>
